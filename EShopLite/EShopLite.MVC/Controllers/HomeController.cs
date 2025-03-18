@@ -27,11 +27,30 @@ namespace EShopLite.MVC.Controllers
       
 
       
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
             //ProductService productService = new ProductService();
+
+            //veritabanından ürünleri çekerken sayfalama yapmayı unutma!!!
             var products = _productService.GetProducts();
-            return View(products);
+            var totalProducts = products.Count();
+            var itemPerPage = 8;
+            var totalPages = Math.Ceiling((double)totalProducts / itemPerPage);
+            var startIndex = (page - 1) * itemPerPage;
+            var endIndex = startIndex + itemPerPage;
+            var paginatedProducts = products.OrderBy(x=>x.Id).Take(startIndex..endIndex);
+
+            var viewModel = new HomeIndexViewModel
+            {
+                Products = paginatedProducts,
+                CurrentPage = page,
+                TotalPages = (int)totalPages
+            };
+
+            //ViewBag.CurrentPage = page;
+            //ViewBag.TotalPages = totalPages;
+
+            return View(viewModel);
         }
 
         public IActionResult Privacy()

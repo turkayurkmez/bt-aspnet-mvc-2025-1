@@ -1,6 +1,7 @@
-﻿@model IEnumerable<ProductListDisplay>
+﻿@model HomeIndexViewModel
 @{
     ViewData["Title"] = "Home Page";
+    var counter = 0;
 }
 
 <div class="text-center">
@@ -8,22 +9,32 @@
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-<div class="row">
-    @foreach (var product in Model)
+<div class="row m-lg-5">
+    @foreach (var product in Model.Products)
     {
+        @if (counter != 0 && counter % 4 ==0)
+        {
+            @:</div>
+            @:<div class="row m-lg-5">
+        }
         <div class="col-3">
             <partial name="_ProductSummary" model="product" />
         </div>
-
+        counter++;
     }
 
 </div>
 
 <nav aria-label="...">
     <ul class="pagination pagination-lg">
-        @for (int i = 1; i <= 3; i++)
+        @for (int i = 1; i <= Model.TotalPages; i++)
         {
-            <li class="page-item @(i==1 ? "active":string.Empty)"><a class="page-link" href="#">@i</a></li>
+          
+            <li class="page-item @(i==Model.CurrentPage ? "active":string.Empty)">
+                <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+
+            </li>
+          
         }
       
     </ul>

@@ -57,7 +57,173 @@ namespace EShopLite.Infrastructure.Repositories
                     Rating = 3.5,
                     Stock = 30,
                     CreatedDate = DateTime.Now
-                }
+                },
+                 new()
+                {
+                    Id = 4,
+                    Name = "Product 1",
+                    Description = "Description 1",
+                    Price = 100,
+                    Rating = 4.5,
+                    Stock = 10,
+                    CreatedDate = DateTime.Now
+
+                },
+                new()
+                {
+                    Id = 5,
+                    Name = "Product 2",
+                    Description = "Description 2",
+                    Price = 200,
+
+                    Rating = 4.0,
+                    Stock = 20,
+                    CreatedDate = DateTime.Now
+
+                },
+                new()
+                {
+                    Id = 6,
+                    Name = "Product 3",
+                    Description = "Description 3",
+                    Price = 300,
+
+                    Rating = 3.5,
+                    Stock = 30,
+                    CreatedDate = DateTime.Now
+                },
+                    new()
+                    {
+                        Id = 7,
+                        Name = "Product 1",
+                        Description = "Description 1",
+                        Price = 100,
+                        Rating = 4.5,
+                        Stock = 10,
+                        CreatedDate = DateTime.Now
+
+                    },
+                    new()
+                    {
+                        Id = 8,
+                        Name = "Product 2",
+                        Description = "Description 2",
+                        Price = 200,
+                        Rating = 4.0,
+                        Stock = 20,
+                        CreatedDate = DateTime.Now
+                    },
+
+                    new()
+                    {
+                        Id = 9,
+                        Name = "Product 3",
+                        Description = "Description 3",
+                        Price = 300,
+                        Rating = 3.5,
+                        Stock = 30,
+                        CreatedDate = DateTime.Now
+                    },
+
+                    new()
+                    {
+                        Id = 10,
+                        Name = "Product 1",
+                        Description = "Description 1",
+                        Price = 100,
+                        Rating = 4.5,
+                        Stock = 10,
+                        CreatedDate = DateTime.Now
+                    },
+
+                    new()
+                    {
+                        Id = 11,
+                        Name = "Product 2",
+                        Description = "Description 2",
+                        Price = 200,
+                        Rating = 4.0,
+                        Stock = 20,
+                        CreatedDate = DateTime.Now
+                    },
+
+                    new()
+                    {
+                        Id = 12,
+                        Name = "Product 3",
+                        Description = "Description 3",
+                        Price = 300,
+                        Rating = 3.5,
+                        Stock = 30,
+                        CreatedDate = DateTime.Now
+                    },
+
+                    new()
+                    {
+                        Id = 13,
+                        Name = "Product 1",
+                        Description = "Description 1",
+                        Price = 100,
+                        Rating = 4.5,
+                        Stock = 10,
+                        CreatedDate = DateTime.Now
+                    },
+
+
+                    new()
+                    {
+                        Id = 14,
+                        Name = "Product 2",
+                        Description = "Description 2",
+                        Price = 200,
+                        Rating = 4.0,
+                        Stock = 20,
+                        CreatedDate = DateTime.Now
+                    },
+
+
+                    new()
+                    {
+                        Id = 15,
+                        Name = "Product 3",
+                        Description = "Description 3",
+                        Price = 300,
+                        Rating = 3.5,
+                        Stock = 30,
+                        CreatedDate = DateTime.Now
+                    },
+
+                    new()
+                    {
+                        Id = 16,
+                        Name = "Product 1",
+                        Description = "Description 1",
+                        Price = 100,
+                        Rating = 4.5,
+                        Stock = 10,
+                        CreatedDate = DateTime.Now
+                    },
+
+                    new()
+                    {
+                        Id = 17,
+                        Name = "Product 2",
+                        Description = "Description 2",
+                        Price = 200,
+                        Rating = 4.0,
+                        Stock = 20,
+                        CreatedDate = DateTime.Now
+                    },
+
+
+
+
+
+
+
+
+
+
 
 
 

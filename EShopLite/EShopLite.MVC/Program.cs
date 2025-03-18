@@ -28,10 +28,20 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
+
+app.MapControllerRoute(name: "paging",
+    pattern: "Sayfa{page}",
+    defaults: new { controller = "Home", action = "Index" });
+
+
+
+
+
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+  
 
 
 app.Run();
