@@ -29,8 +29,7 @@ namespace EShopLite.Infrastructure.Repositories
                     Id = 1,
                     Name = "Product 1",
                     Description = "Description 1",
-                    Price = 100,
-                    ImageUrl = "https://via.placeholder.com/150",
+                    Price = 100,                   
                     Rating = 4.5,
                     Stock = 10,
                     CreatedDate = DateTime.Now
@@ -42,7 +41,7 @@ namespace EShopLite.Infrastructure.Repositories
                     Name = "Product 2",
                     Description = "Description 2",
                     Price = 200,
-                    ImageUrl = "https://via.placeholder.com/150",
+                  
                     Rating = 4.0,
                     Stock = 20,
                     CreatedDate = DateTime.Now
@@ -54,7 +53,7 @@ namespace EShopLite.Infrastructure.Repositories
                     Name = "Product 3",
                     Description = "Description 3",
                     Price = 300,
-                    ImageUrl = "https://via.placeholder.com/150",
+                  
                     Rating = 3.5,
                     Stock = 30,
                     CreatedDate = DateTime.Now

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Product>
+﻿@model IEnumerable<ProductListDisplay>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -8,17 +8,23 @@
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
-@foreach (var product in Model)
-{
-    <div class="card">
-        <img src="@product.ImageUrl" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">@product.Name</h5>
-            <p class="card-text">@product.Description </p>
-            <p class="card-text">@product.Price </p>
-
-            <a href="#" class="btn btn-primary">Sepete Ekle</a>
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-3">
+            <partial name="_ProductSummary" model="product" />
         </div>
-    </div>
-    
-}    
+
+    }
+
+</div>
+
+<nav aria-label="...">
+    <ul class="pagination pagination-lg">
+        @for (int i = 1; i <= 3; i++)
+        {
+            <li class="page-item @(i==1 ? "active":string.Empty)"><a class="page-link" href="#">@i</a></li>
+        }
+      
+    </ul>
+</nav>

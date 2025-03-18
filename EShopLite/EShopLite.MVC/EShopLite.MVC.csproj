@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\EShopLite.Application\EShopLite.Application.csproj" />
     <ProjectReference Include="..\EShopLite.Domain\EShopLite.Domain.csproj" />
     <ProjectReference Include="..\EShopLite.Infrastructure\EShopLite.Infrastructure.csproj" />

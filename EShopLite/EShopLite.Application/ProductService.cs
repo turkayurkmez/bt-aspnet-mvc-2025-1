@@ -17,7 +17,17 @@ namespace EShopLite.Application
 
             var response = productRepository.GetAllAsync().Result;           
 
-            return response.ToList();
+            var dtoResponse = response.Select(x => new ProductListDisplay
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Description = x.Description,
+                Price = x.Price,
+                ImageUrl = x.ImageUrl,
+                Rating = x.Rating
+            });
+
+            return dtoResponse;
         }
     }
 }
