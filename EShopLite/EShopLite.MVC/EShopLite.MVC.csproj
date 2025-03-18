@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EShopLite.Application\EShopLite.Application.csproj" />
     <ProjectReference Include="..\EShopLite.Domain\EShopLite.Domain.csproj" />
+    <ProjectReference Include="..\EShopLite.Infrastructure\EShopLite.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

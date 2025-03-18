@@ -1,4 +1,6 @@
 ﻿using EShopLite.Application;
+using EShopLite.Domain.Contracts;
+using EShopLite.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,7 @@ builder.Services.AddControllersWithViews();
 
 //IoC Container - Inversion of Control: Dependency'leri bir koleksiyon içerisinde tutar ve gerektiğinde bu koleksiyondan ilgili nesneyi alır.
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductRepository, FakeProductRepository>();
 
 var app = builder.Build();
 

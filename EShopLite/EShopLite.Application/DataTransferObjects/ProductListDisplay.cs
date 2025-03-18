@@ -1,13 +1,12 @@
-﻿using EShopLite.Domain.Contracts;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EShopLite.Domain
+namespace EShopLite.Application.DataTransferObjects
 {
-    public class Product : IEntity
+    public class ProductListDisplay
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -16,8 +15,5 @@ namespace EShopLite.Domain
 
         public string ImageUrl { get; set; }
         public double? Rating { get; set; }
-        public int Stock { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime? UpdatedDate { get; set; }
     }
 }

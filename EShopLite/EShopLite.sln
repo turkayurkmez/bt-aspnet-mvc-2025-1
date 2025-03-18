@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopLite.Domain", "EShopLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopLite.Application", "EShopLite.Application\EShopLite.Application.csproj", "{774477DA-E8DE-4E0C-A86D-A3D6AB5D8D1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopLite.Infrastructure", "EShopLite.Infrastructure\EShopLite.Infrastructure.csproj", "{1BDCD11C-4FC1-425F-972C-8B13FEDB8D25}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{774477DA-E8DE-4E0C-A86D-A3D6AB5D8D1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{774477DA-E8DE-4E0C-A86D-A3D6AB5D8D1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{774477DA-E8DE-4E0C-A86D-A3D6AB5D8D1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BDCD11C-4FC1-425F-972C-8B13FEDB8D25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BDCD11C-4FC1-425F-972C-8B13FEDB8D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BDCD11C-4FC1-425F-972C-8B13FEDB8D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BDCD11C-4FC1-425F-972C-8B13FEDB8D25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
