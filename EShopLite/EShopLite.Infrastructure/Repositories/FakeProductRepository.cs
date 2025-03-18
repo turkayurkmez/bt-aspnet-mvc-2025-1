@@ -10,29 +10,21 @@ namespace EShopLite.Infrastructure.Repositories
 {
     public class FakeProductRepository : IProductRepository
     {
-        public Task AddAsync(Product entity)
+        private List<Product> _fakeCollection;
+        public FakeProductRepository()
         {
-            throw new NotImplementedException();
-        }
-
-        public Task DeleteAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public  Task<IEnumerable<Product>> GetAllAsync()
-        {
-            var products = new List<Product>()
+            _fakeCollection = new List<Product>()
             {
                 new()
                 {
                     Id = 1,
                     Name = "Product 1",
                     Description = "Description 1",
-                    Price = 100,                   
+                    Price = 100,
                     Rating = 4.5,
                     Stock = 10,
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
+                    CategoryId = 1
 
                 },
                 new()
@@ -41,10 +33,11 @@ namespace EShopLite.Infrastructure.Repositories
                     Name = "Product 2",
                     Description = "Description 2",
                     Price = 200,
-                  
+
                     Rating = 4.0,
                     Stock = 20,
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
+                    CategoryId = 1
 
                 },
                 new()
@@ -53,10 +46,12 @@ namespace EShopLite.Infrastructure.Repositories
                     Name = "Product 3",
                     Description = "Description 3",
                     Price = 300,
-                  
+
                     Rating = 3.5,
                     Stock = 30,
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
+                    CategoryId = 2
+
                 },
                  new()
                 {
@@ -66,7 +61,8 @@ namespace EShopLite.Infrastructure.Repositories
                     Price = 100,
                     Rating = 4.5,
                     Stock = 10,
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
+                    CategoryId = 3
 
                 },
                 new()
@@ -78,7 +74,8 @@ namespace EShopLite.Infrastructure.Repositories
 
                     Rating = 4.0,
                     Stock = 20,
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
+                    CategoryId = 1
 
                 },
                 new()
@@ -90,7 +87,8 @@ namespace EShopLite.Infrastructure.Repositories
 
                     Rating = 3.5,
                     Stock = 30,
-                    CreatedDate = DateTime.Now
+                    CreatedDate = DateTime.Now,
+                    CategoryId = 2
                 },
                     new()
                     {
@@ -100,7 +98,8 @@ namespace EShopLite.Infrastructure.Repositories
                         Price = 100,
                         Rating = 4.5,
                         Stock = 10,
-                        CreatedDate = DateTime.Now
+                        CreatedDate = DateTime.Now,
+                        CategoryId = 3
 
                     },
                     new()
@@ -111,7 +110,8 @@ namespace EShopLite.Infrastructure.Repositories
                         Price = 200,
                         Rating = 4.0,
                         Stock = 20,
-                        CreatedDate = DateTime.Now
+                        CreatedDate = DateTime.Now,
+                        CategoryId = 1
                     },
 
                     new()
@@ -122,7 +122,9 @@ namespace EShopLite.Infrastructure.Repositories
                         Price = 300,
                         Rating = 3.5,
                         Stock = 30,
-                        CreatedDate = DateTime.Now
+                        CreatedDate = DateTime.Now,
+                        CategoryId = 2
+
                     },
 
                     new()
@@ -133,7 +135,8 @@ namespace EShopLite.Infrastructure.Repositories
                         Price = 100,
                         Rating = 4.5,
                         Stock = 10,
-                        CreatedDate = DateTime.Now
+                        CreatedDate = DateTime.Now,
+                        CategoryId = 3
                     },
 
                     new()
@@ -144,7 +147,9 @@ namespace EShopLite.Infrastructure.Repositories
                         Price = 200,
                         Rating = 4.0,
                         Stock = 20,
-                        CreatedDate = DateTime.Now
+                        CreatedDate = DateTime.Now,
+                        CategoryId = 2
+
                     },
 
                     new()
@@ -155,7 +160,9 @@ namespace EShopLite.Infrastructure.Repositories
                         Price = 300,
                         Rating = 3.5,
                         Stock = 30,
-                        CreatedDate = DateTime.Now
+                        CreatedDate = DateTime.Now,
+                        CategoryId = 1
+
                     },
 
                     new()
@@ -166,7 +173,9 @@ namespace EShopLite.Infrastructure.Repositories
                         Price = 100,
                         Rating = 4.5,
                         Stock = 10,
-                        CreatedDate = DateTime.Now
+                        CreatedDate = DateTime.Now,
+                        CategoryId = 3
+
                     },
 
 
@@ -178,7 +187,9 @@ namespace EShopLite.Infrastructure.Repositories
                         Price = 200,
                         Rating = 4.0,
                         Stock = 20,
-                        CreatedDate = DateTime.Now
+                        CreatedDate = DateTime.Now,
+                        CategoryId = 2
+
                     },
 
 
@@ -190,7 +201,8 @@ namespace EShopLite.Infrastructure.Repositories
                         Price = 300,
                         Rating = 3.5,
                         Stock = 30,
-                        CreatedDate = DateTime.Now
+                        CreatedDate = DateTime.Now,
+                        CategoryId = 1
                     },
 
                     new()
@@ -201,7 +213,8 @@ namespace EShopLite.Infrastructure.Repositories
                         Price = 100,
                         Rating = 4.5,
                         Stock = 10,
-                        CreatedDate = DateTime.Now
+                        CreatedDate = DateTime.Now,
+                        CategoryId = 3
                     },
 
                     new()
@@ -212,7 +225,8 @@ namespace EShopLite.Infrastructure.Repositories
                         Price = 200,
                         Rating = 4.0,
                         Stock = 20,
-                        CreatedDate = DateTime.Now
+                        CreatedDate = DateTime.Now,
+                        CategoryId = 2
                     },
 
 
@@ -231,12 +245,27 @@ namespace EShopLite.Infrastructure.Repositories
 
             };
 
-            return Task.FromResult(products.AsEnumerable());
+        }
+        public Task AddAsync(Product entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public  Task<IEnumerable<Product>> GetAllAsync()
+        {
+            
+
+            return Task.FromResult(_fakeCollection.AsEnumerable());
         }
 
         public Task<IEnumerable<Product>> GetByCategoryAsync(int categoryId)
         {
-            throw new NotImplementedException();
+          return Task.FromResult(_fakeCollection.Where(x => x.CategoryId == categoryId).AsEnumerable());
         }
 
         public Task<Product> GetByIdAsync(int id)

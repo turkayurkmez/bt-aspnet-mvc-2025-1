@@ -29,5 +29,22 @@ namespace EShopLite.Application
 
             return dtoResponse;
         }
+
+        public IEnumerable<ProductListDisplay> GetProductsByCategory(int categoryId)
+        {
+            var products = productRepository.GetByCategoryAsync(categoryId).Result;
+
+            var dtoResponse = products.Select(x => new ProductListDisplay
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Description = x.Description,
+                Price = x.Price,
+                ImageUrl = x.ImageUrl,
+                Rating = x.Rating
+            });
+
+            return dtoResponse;
+        }
     }
 }

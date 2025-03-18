@@ -10,6 +10,8 @@ builder.Services.AddControllersWithViews();
 //IoC Container - Inversion of Control: Dependency'leri bir koleksiyon içerisinde tutar ve gerektiğinde bu koleksiyondan ilgili nesneyi alır.
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, FakeProductRepository>();
+builder.Services.AddScoped<ICategoryRepository, FakeCategoryRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();
 
@@ -29,13 +31,13 @@ app.UseAuthorization();
 app.MapStaticAssets();
 
 
+app.MapControllerRoute(name: "category",
+    pattern: "{categoryId?}/Sayfa{page}",
+    defaults: new { controller = "Home", action = "Index", page=1 });
+
 app.MapControllerRoute(name: "paging",
     pattern: "Sayfa{page}",
-    defaults: new { controller = "Home", action = "Index" });
-
-
-
-
+    defaults: new { controller = "Home", action = "Index", page=1 });
 
 
 app.MapControllerRoute(

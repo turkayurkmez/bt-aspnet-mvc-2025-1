@@ -27,12 +27,12 @@ namespace EShopLite.MVC.Controllers
       
 
       
-        public IActionResult Index(int page=1)
+        public IActionResult Index(int page=1, int? categoryId=null)
         {
             //ProductService productService = new ProductService();
 
             //veritabanından ürünleri çekerken sayfalama yapmayı unutma!!!
-            var products = _productService.GetProducts();
+            var products = categoryId.HasValue ? _productService.GetProductsByCategory(categoryId.Value) : _productService.GetProducts();
             var totalProducts = products.Count();
             var itemPerPage = 8;
             var totalPages = Math.Ceiling((double)totalProducts / itemPerPage);
@@ -44,7 +44,8 @@ namespace EShopLite.MVC.Controllers
             {
                 Products = paginatedProducts,
                 CurrentPage = page,
-                TotalPages = (int)totalPages
+                TotalPages = (int)totalPages,
+                CategoryId = categoryId
             };
 
             //ViewBag.CurrentPage = page;

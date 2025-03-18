@@ -31,7 +31,7 @@
         {
           
             <li class="page-item @(i==Model.CurrentPage ? "active":string.Empty)">
-                <a class="page-link" asp-action="Index" asp-route-page="@i">@i</a>
+                <a class="page-link" asp-action="Index" asp-route-page="@i" asp-route-categoryId="@Model.CategoryId">@i</a>
 
             </li>
           

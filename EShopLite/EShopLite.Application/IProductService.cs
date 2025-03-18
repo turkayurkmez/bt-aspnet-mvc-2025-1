@@ -6,5 +6,6 @@ namespace EShopLite.Application
     public interface IProductService
     {
         IEnumerable<ProductListDisplay> GetProducts();
+        IEnumerable<ProductListDisplay> GetProductsByCategory(int categoryId);
     }
 }
