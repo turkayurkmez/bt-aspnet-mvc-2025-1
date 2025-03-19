@@ -22,21 +22,28 @@ namespace EShopLite.Infrastructure.Repositories
 
         public async Task<int> Count(int? categoryId)
         {
-            return categoryId.HasValue ? await dbContext.Products.CountAsync(x=>x.CategoryId==categoryId)
+            return categoryId.HasValue ? await dbContext.Products.CountAsync(x => x.CategoryId == categoryId)
                                        : await dbContext.Products.CountAsync();
         }
 
         public async Task DeleteAsync(int id)
         {
+
+
+
             var product = await dbContext.Products.FindAsync(id);
             dbContext.Products.Remove(product);
             await dbContext.SaveChangesAsync();
 
+
+
         }
+
+
 
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
-           return await dbContext.Products.ToListAsync();
+            return await dbContext.Products.ToListAsync();
         }
 
         public async Task<IEnumerable<Product>> GetByCategoryAsync(int categoryId)
@@ -55,7 +62,7 @@ namespace EShopLite.Infrastructure.Repositories
                 .Skip(startIndex)
                 .Take(pageSize)
                 .ToListAsync();
-               
+
         }
 
         public async Task<Product> GetByIdAsync(int id)
@@ -65,21 +72,21 @@ namespace EShopLite.Infrastructure.Repositories
 
         public async Task<bool> IsExistsAync(int id)
         {
-           return await dbContext.Products.AnyAsync(x => x.Id == id);
+            return await dbContext.Products.AnyAsync(x => x.Id == id);
         }
 
-        public async  Task<IEnumerable<Product>> Paginated(int pageNo, int pageSize)
+        public async Task<IEnumerable<Product>> Paginated(int pageNo, int pageSize)
         {
             var startIndex = (pageNo - 1) * pageSize;
             var endIndex = startIndex + pageSize;
 
-            var result = await dbContext.Products.OrderBy(p=>p.Id).Skip(startIndex).Take(pageSize).ToListAsync();
+            var result = await dbContext.Products.OrderBy(p => p.Id).Skip(startIndex).Take(pageSize).ToListAsync();
             return result;
         }
 
         public async Task<IEnumerable<Product>> SearchAsync(string name)
         {
-           return await dbContext.Products.Where(x => x.Name.Contains(name)).ToListAsync();
+            return await dbContext.Products.Where(x => x.Name.Contains(name)).ToListAsync();
         }
 
         public Task UpdateAsync(Product entity)

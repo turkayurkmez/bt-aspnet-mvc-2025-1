@@ -18,6 +18,11 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<EshopLiteDbContext>(options => options.UseSqlServer(connectionString));
 
+builder.Services.AddSession(option =>
+{
+    option.IdleTimeout = TimeSpan.FromMinutes(20);
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -31,7 +36,9 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+
 app.UseAuthorization();
+app.UseSession();
 
 app.MapStaticAssets();
 

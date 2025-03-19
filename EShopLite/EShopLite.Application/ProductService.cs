@@ -11,7 +11,12 @@ namespace EShopLite.Application
 {
     public class ProductService(IProductRepository productRepository) : IProductService
     {
-        
+        public async Task<ProductItemForBasket> GetProductById(int id)
+        {
+            var product = await productRepository.GetByIdAsync(id);
+            return new ProductItemForBasket(product.Id, product.Name, product.Price, product.ImageUrl);
+        }
+
         public async Task<IEnumerable<ProductListDisplay>> GetProducts(int? page=null, int? pageSize=null)
         {
 
