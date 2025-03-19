@@ -1,6 +1,8 @@
 ﻿using EShopLite.Application;
 using EShopLite.Domain.Contracts;
+using EShopLite.Infrastructure.DataContext;
 using EShopLite.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,9 @@ builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository, FakeProductRepository>();
 builder.Services.AddScoped<ICategoryRepository, FakeCategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddDbContext<EshopLiteDbContext>(options => options.UseSqlServer(connectionString));
 
 var app = builder.Build();
 

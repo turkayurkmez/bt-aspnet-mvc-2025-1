@@ -17,7 +17,7 @@ namespace EShopLite.Domain
         public string ImageUrl { get; set; } = "https://picsum.photos/200";
         public double? Rating { get; set; }
         public int Stock { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
 
         public int? CategoryId { get; set; }
