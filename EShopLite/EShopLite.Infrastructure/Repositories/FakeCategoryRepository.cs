@@ -8,57 +8,57 @@ using System.Threading.Tasks;
 
 namespace EShopLite.Infrastructure.Repositories
 {
-    public class FakeCategoryRepository : ICategoryRepository
-    {
-        public Task AddAsync(Category entity)
-        {
-            throw new NotImplementedException();
-        }
+    //public class FakeCategoryRepository : ICategoryRepository
+    //{
+    //    public Task AddAsync(Category entity)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
 
-        public Task DeleteAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+    //    public Task DeleteAsync(int id)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
 
-        public Task<IEnumerable<Category>> GetAllAsync()
-        {
-            var categories = new List<Category>()
-            {
-                new()
-                {
-                    Id = 1,
-                    Name = "Elektronik",
+    //    public Task<IEnumerable<Category>> GetAllAsync()
+    //    {
+    //        var categories = new List<Category>()
+    //        {
+    //            new()
+    //            {
+    //                Id = 1,
+    //                Name = "Elektronik",
 
-                },
-                new()
-                {
-                    Id = 2,
-                    Name = "Giyim",
+    //            },
+    //            new()
+    //            {
+    //                Id = 2,
+    //                Name = "Giyim",
 
-                },
-                new()
-                {
-                    Id = 3,
-                    Name = "Aksesuar",
-                }
-            };
+    //            },
+    //            new()
+    //            {
+    //                Id = 3,
+    //                Name = "Aksesuar",
+    //            }
+    //        };
 
-            return Task.FromResult(categories.AsEnumerable());
-        }
+    //        return Task.FromResult(categories.AsEnumerable());
+    //    }
 
-        public Task<Category> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
+    //    public Task<Category> GetByIdAsync(int id)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
 
-        public Task<bool> IsExistsAync(int id)
-        {
-            throw new NotImplementedException();
-        }
+    //    public Task<bool> IsExistsAync(int id)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
 
-        public Task UpdateAsync(Category entity)
-        {
-            throw new NotImplementedException();
-        }
-    }
+    //    public Task UpdateAsync(Category entity)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
 }

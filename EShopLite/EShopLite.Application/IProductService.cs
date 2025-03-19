@@ -5,7 +5,9 @@ namespace EShopLite.Application
 {
     public interface IProductService
     {
-        IEnumerable<ProductListDisplay> GetProducts();
-        IEnumerable<ProductListDisplay> GetProductsByCategory(int categoryId);
+        Task<IEnumerable<ProductListDisplay>> GetProducts(int? page=null, int? pageSize=null);
+        Task<IEnumerable<ProductListDisplay>> GetProductsByCategory(int categoryId, int? page = null, int? pageSize = null);
+
+        Task<int> TotalProductsCount(int? categoryId);
     }
 }

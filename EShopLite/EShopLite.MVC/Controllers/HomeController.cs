@@ -27,22 +27,22 @@ namespace EShopLite.MVC.Controllers
       
 
       
-        public IActionResult Index(int page=1, int? categoryId=null)
+        public async Task<IActionResult> Index(int page=1, int? categoryId=null)
         {
             //ProductService productService = new ProductService();
 
             //veritabanından ürünleri çekerken sayfalama yapmayı unutma!!!
-            var products = categoryId.HasValue ? _productService.GetProductsByCategory(categoryId.Value) : _productService.GetProducts();
-            var totalProducts = products.Count();
             var itemPerPage = 8;
+            var products = categoryId.HasValue ? await _productService.GetProductsByCategory(categoryId.Value, page, itemPerPage)
+                                               : await _productService.GetProducts(page, itemPerPage);
+            var totalProducts = await _productService.TotalProductsCount(categoryId);
+         
             var totalPages = Math.Ceiling((double)totalProducts / itemPerPage);
-            var startIndex = (page - 1) * itemPerPage;
-            var endIndex = startIndex + itemPerPage;
-            var paginatedProducts = products.OrderBy(x=>x.Id).Take(startIndex..endIndex);
+          
 
             var viewModel = new HomeIndexViewModel
             {
-                Products = paginatedProducts,
+                Products = products,
                 CurrentPage = page,
                 TotalPages = (int)totalPages,
                 CategoryId = categoryId
