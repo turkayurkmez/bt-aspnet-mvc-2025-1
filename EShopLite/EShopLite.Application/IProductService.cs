@@ -17,5 +17,8 @@ namespace EShopLite.Application
 
         Task DeleteProduct(int id);
 
+ 
+        Task<IEnumerable<ProductListDisplay>> Search(string name);
+        Task<bool> IsExists(int id);
     }
 }

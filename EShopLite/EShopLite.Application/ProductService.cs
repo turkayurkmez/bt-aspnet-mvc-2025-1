@@ -98,6 +98,26 @@ namespace EShopLite.Application
             return dtoResponse;
         }
 
+        public async Task<bool> IsExists(int id)
+        {
+             return await productRepository.IsExistsAync(id);
+        }
+
+        public async Task<IEnumerable<ProductListDisplay>> Search(string name)
+        {
+            var products = await productRepository.SearchAsync(name);
+
+            return products.Select(x => new ProductListDisplay
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Description = x.Description,
+                Price = x.Price,
+                ImageUrl = x.ImageUrl,
+                Rating = x.Rating
+            });
+        }
+
         public async Task<int> TotalProductsCount(int? categoryId)
         {
             return  await productRepository.Count(categoryId);

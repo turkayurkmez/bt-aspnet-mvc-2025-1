@@ -4,3 +4,48 @@
 GET {{EshopLite.API_HostAddress}}/api/products
 
 ###
+
+@categoryId=1
+GET {{EshopLite.API_HostAddress}}/api/products/category/{{categoryId}}
+
+###
+
+@name=Samsung
+GET {{EshopLite.API_HostAddress}}/api/products/search/{{name}}
+
+###
+
+@id=28
+GET {{EshopLite.API_HostAddress}}/api/products/{{id}}
+
+###
+
+POST {{EshopLite.API_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Samsung Galaxy S21",
+  "description": "Samsung Galaxy S21 5G 128GB Phantom Gray",
+  "price": 999.99,
+  "categoryId": 1,
+  "imageUrl": "https://cdn.alza.cz/Foto/f16/NO/NOV/NOV0/4/4/NOV0444.jpg",
+  "stock": 10
+  
+}
+
+###
+
+PUT {{EshopLite.API_HostAddress}}/api/products/{{id}}
+Content-Type: application/json
+
+{
+  "id":28,
+  "name": "Samsung Galaxy S21",
+  "description": "Samsung Galaxy S21 5G 128GB Phantom Gray",
+  "price": 1250,
+  "categoryId": 1,
+  "imageUrl": "https://cdn.alza.cz/Foto/f16/NO/NOV/NOV0/4/4/NOV0444.jpg",
+  "stock": 10
+}
+
+###
