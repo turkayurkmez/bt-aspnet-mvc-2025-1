@@ -1,4 +1,5 @@
 ﻿using EShopLite.Application;
+using EShopLite.MVC.Extensions;
 using EShopLite.MVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -25,20 +26,13 @@ namespace EShopLite.MVC.Controllers
 
         private ShoppingCardCollection getCollectionFromSession()
         {
-              var serialized = HttpContext.Session.GetString("basket");
-            if (serialized == null)
-            {
-                return new ShoppingCardCollection();
-            }
-            return JsonConvert.DeserializeObject<ShoppingCardCollection>(serialized);
+            //lazy initialization
+            return HttpContext.Session.GetJson<ShoppingCardCollection>("basket") ?? new ShoppingCardCollection();
         }
 
         private void saveToSession(ShoppingCardCollection shoppingCardCollection)
         {
-            //önce json 'a çevir
-            var serialized = JsonConvert.SerializeObject(shoppingCardCollection);
-            //session'a kaydet
-            HttpContext.Session.SetString("basket", serialized);
+           HttpContext.Session.SetJson("basket", shoppingCardCollection);
 
         }
 

@@ -11,10 +11,44 @@ namespace EShopLite.Application
 {
     public class ProductService(IProductRepository productRepository) : IProductService
     {
+        public async Task<int> CreateNewProduct(CreateNewProductRequest request)
+        {
+           var product = new Product
+           {
+               Name = request.Name,
+               Description = request.Description,
+               Price = request.Price,
+               ImageUrl = request.ImageUrl,             
+               CategoryId = request.CategoryId
+           };
+            await productRepository.AddAsync(product);
+            return product.Id;
+        }
+
+        public async Task DeleteProduct(int id)
+        {
+            await productRepository.DeleteAsync(id);
+        }
+
         public async Task<ProductItemForBasket> GetProductById(int id)
         {
             var product = await productRepository.GetByIdAsync(id);
             return new ProductItemForBasket(product.Id, product.Name, product.Price, product.ImageUrl);
+        }
+
+        public async Task<UpdateProductRequest> GetProductForUpdate(int id)
+        {
+            var product = await productRepository.GetByIdAsync(id);
+            return new UpdateProductRequest
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                Price = product.Price,
+                ImageUrl = product.ImageUrl,
+                CategoryId = product.CategoryId
+
+            };
         }
 
         public async Task<IEnumerable<ProductListDisplay>> GetProducts(int? page=null, int? pageSize=null)
@@ -67,6 +101,21 @@ namespace EShopLite.Application
         public async Task<int> TotalProductsCount(int? categoryId)
         {
             return  await productRepository.Count(categoryId);
+        }
+
+        public async Task UpdateProduct(UpdateProductRequest request)
+        {
+           var product = new Product
+           {
+               Id = request.Id,
+               Name = request.Name,
+               Description = request.Description,
+               Price = request.Price,
+               ImageUrl = request.ImageUrl,
+               CategoryId = request.CategoryId
+           };
+            
+            await productRepository.UpdateAsync(product);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using EShopLite.Application;
 using EShopLite.Domain.Contracts;
+using EShopLite.Infrastructure;
 using EShopLite.Infrastructure.DataContext;
 using EShopLite.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -10,13 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 //IoC Container - Inversion of Control: Dependency'leri bir koleksiyon içerisinde tutar ve gerektiğinde bu koleksiyondan ilgili nesneyi alır.
-builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<IProductRepository, ProductRepository>();
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-
+builder.Services.AddApplication();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddDbContext<EshopLiteDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddInfrastructure(connectionString);
 
 builder.Services.AddSession(option =>
 {

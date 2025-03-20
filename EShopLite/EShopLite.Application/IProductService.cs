@@ -10,6 +10,12 @@ namespace EShopLite.Application
         Task<int> TotalProductsCount(int? categoryId);
 
         Task<ProductItemForBasket> GetProductById(int id);
+        Task<UpdateProductRequest> GetProductForUpdate(int id);
+
+        Task<int> CreateNewProduct(CreateNewProductRequest request);
+        Task UpdateProduct(UpdateProductRequest request);
+
+        Task DeleteProduct(int id);
 
     }
 }
