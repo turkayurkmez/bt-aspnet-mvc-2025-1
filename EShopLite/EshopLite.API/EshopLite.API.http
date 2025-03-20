@@ -1,0 +1,6 @@
+@EshopLite.API_HostAddress = https://localhost:7116
+
+
+GET {{EshopLite.API_HostAddress}}/api/products
+
+###

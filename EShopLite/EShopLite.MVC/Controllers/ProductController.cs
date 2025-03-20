@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace EShopLite.MVC.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "admin,editor")]
     public class ProductController(IProductService productService, ICategoryService categoryService) : Controller
     {
 

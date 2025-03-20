@@ -61,6 +61,18 @@ namespace EShopLite.MVC.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult AccessDenied()
+        {
+
+            return View();
+        }
+
 
     }
 }
