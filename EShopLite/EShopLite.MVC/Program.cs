@@ -3,6 +3,7 @@ using EShopLite.Domain.Contracts;
 using EShopLite.Infrastructure;
 using EShopLite.Infrastructure.DataContext;
 using EShopLite.Infrastructure.Repositories;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,15 @@ builder.Services.AddSession(option =>
     option.IdleTimeout = TimeSpan.FromMinutes(20);
 });
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(option => {
+                    option.LoginPath = "/Users/Login";
+                    option.AccessDeniedPath = "/Users/AccessDenied";
+                    option.ReturnUrlParameter = "gidilecekSayfa";
+
+
+                });
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -33,7 +43,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
-
+app.UseAuthentication();
 app.UseAuthorization();
 app.UseSession();
 

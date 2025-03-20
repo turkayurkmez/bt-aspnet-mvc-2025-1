@@ -13,6 +13,7 @@ namespace EShopLite.Application
         {
             services.AddScoped<IProductService, ProductService>();
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IUserService, UserService>();
             return services;
         }
     }
