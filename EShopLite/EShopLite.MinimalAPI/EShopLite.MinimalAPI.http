@@ -1,6 +1,29 @@
-@EShopLite.MinimalAPI_HostAddress = http://localhost:5074
+@EShopLite.MinimalAPI_HostAddress = https://localhost:7258
 
 GET {{EShopLite.MinimalAPI_HostAddress}}/weatherforecast/
 Accept: application/json
+
+###
+
+GET {{EShopLite.MinimalAPI_HostAddress}}/products
+
+###
+@categoryId = 3
+GET {{EShopLite.MinimalAPI_HostAddress}}/products/category/{{categoryId}}
+
+###
+
+POST {{EShopLite.MinimalAPI_HostAddress}}/products
+Content-Type: application/json
+
+{
+  "name": "abc",
+  "description": "Samsung Galaxy S21 5G 128GB Phantom Gray",
+  "price": 999.99,
+  "categoryId": 1,
+  "imageUrl": "https://cdn.alza.cz/Foto/f16/NO/NOV/NOV0/4/4/NOV0444.jpg",
+  "stock": 10
+  
+}
 
 ###
