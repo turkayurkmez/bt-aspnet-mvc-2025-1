@@ -64,5 +64,20 @@ namespace EShopLite.MVC.Controllers
             ViewBag.Categories = await GetCategories();
             return View(model);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id) { 
+            //id'ye göre ürünü çek:
+            
+            var product = await productService.GetProductById(id);    
+            return View(product);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirm(int id)
+        {
+            //serviste olduğunu varsayın.
+            return View();
+        }
     }
 }

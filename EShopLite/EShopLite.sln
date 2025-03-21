@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopLite.Infrastructure", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EshopLite.API", "EshopLite.API\EshopLite.API.csproj", "{60F4B9A4-EE9D-4B3A-B547-54BEAB0FCBF8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EShopLite.MinimalAPI", "EShopLite.MinimalAPI\EShopLite.MinimalAPI.csproj", "{BCD37D66-EEFC-40C1-8A2F-20F77455D11C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{60F4B9A4-EE9D-4B3A-B547-54BEAB0FCBF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60F4B9A4-EE9D-4B3A-B547-54BEAB0FCBF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60F4B9A4-EE9D-4B3A-B547-54BEAB0FCBF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCD37D66-EEFC-40C1-8A2F-20F77455D11C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCD37D66-EEFC-40C1-8A2F-20F77455D11C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCD37D66-EEFC-40C1-8A2F-20F77455D11C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCD37D66-EEFC-40C1-8A2F-20F77455D11C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

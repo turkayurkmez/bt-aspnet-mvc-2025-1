@@ -15,7 +15,7 @@ GET {{EshopLite.API_HostAddress}}/api/products/search/{{name}}
 
 ###
 
-@id=28
+@id=31
 GET {{EshopLite.API_HostAddress}}/api/products/{{id}}
 
 ###
@@ -39,7 +39,7 @@ PUT {{EshopLite.API_HostAddress}}/api/products/{{id}}
 Content-Type: application/json
 
 {
-  "id":28,
+  "id":30,
   "name": "Samsung Galaxy S21",
   "description": "Samsung Galaxy S21 5G 128GB Phantom Gray",
   "price": 1250,
@@ -47,5 +47,9 @@ Content-Type: application/json
   "imageUrl": "https://cdn.alza.cz/Foto/f16/NO/NOV/NOV0/4/4/NOV0444.jpg",
   "stock": 10
 }
+
+###
+
+DELETE {{EshopLite.API_HostAddress}}/api/products/{{id}}
 
 ###
